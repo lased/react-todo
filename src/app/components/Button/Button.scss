@@ -1,0 +1,32 @@
+.btn {
+  display: inline-block;
+  padding: 12px 10px;
+  background-color: #f4f6f8;
+  border-radius: 5px;
+  font-weight: 600;
+  color: #9c9c9c;
+  cursor: pointer;
+  border-style: none;
+  outline: none;
+  text-align: center;
+
+  &:disabled {
+    opacity: 0.5;
+  }
+
+  &__icon {
+    margin-right: 10px;
+  }
+
+  &_bg {
+    &_green {
+      color: #fff;
+      background-color: #4dd599;
+    }
+
+    &_transparent {
+      color: #767676;
+      background-color: transparent;
+    }
+  }
+}

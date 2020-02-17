@@ -1,0 +1,50 @@
+$colors: (gray: #c9d1d3,
+  green: #42b883,
+  blue: #64c4ed,
+  red: #ff6464,
+  pink: #ffbbcc,
+  black: #09011a,
+  purple: #c355f5,
+  lightgreen: #b6e6bd);
+
+.fill {
+
+  @each $name,
+  $color in $colors {
+    &_bg_#{$name} {
+      background-color: $color;
+    }
+
+    &_text_#{$name} {
+      color: $color;
+    }
+  }
+}
+
+.wrapper {
+  display: flex;
+  min-height: 100vh;
+
+  .sidebar {
+    flex: 1;
+    background: #f1f1f1;
+    padding: 45px 20px 0;
+  }
+
+  .content {
+    flex: 3;
+    padding: 50px;
+    position: relative;
+  }
+
+  .modal-wrap {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+}
