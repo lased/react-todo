@@ -1,4 +1,4 @@
-import React, { useState, CSSProperties, useReducer } from 'react'
+import React, { useState, CSSProperties, useReducer, useEffect } from 'react'
 import { Route, Switch, withRouter, useHistory } from "react-router-dom";
 
 import { Categories, Button, Modal } from './components'
@@ -11,6 +11,8 @@ import { DB } from './db'
 import './App.scss'
 
 const App: React.FC = () => {
+  DB.init()
+
   const history = useHistory()
   const modalStyle: CSSProperties = { display: 'none' }
   const categories = (DB.getAll('categories') as ICategory[]).map(v => ({ ...v, isRemovable: true }))
@@ -53,8 +55,6 @@ const App: React.FC = () => {
   }
 
   if (modal.visible) modalStyle.display = 'flex'
-
-  DB.init()
 
   return (
     <div className="wrapper">

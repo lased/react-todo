@@ -22,8 +22,10 @@ export class DB {
     }
 
     static init() {
-        if (!DB.get('categories') && DB.get('categories') instanceof Array) DB.set('categories', [])
-        if (!DB.get('tasks') && DB.get('tasks') instanceof Array) DB.set('tasks', [])
+        if (!DB.get('categories').length && DB.get('categories') instanceof Array) 
+            DB.set('categories', [{color:"red",id:0,isRemovable:!0,name:"Category tasks"}as ICategory])
+        if (!DB.get('tasks').length && DB.get('tasks') instanceof Array) 
+            DB.set('tasks', [{category:0,id:0,name:"test 1"} as ITask,{category:0,id:1,name:"test 2"}as ITask])
     }
 
     static crud(type: string, name: 'categories' | 'tasks', item: ICategory | ITask) {
